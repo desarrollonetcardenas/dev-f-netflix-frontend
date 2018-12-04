@@ -3,9 +3,8 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { ApolloProvider } from 'react-apollo';
 
 import routes from './Routes'
-import Navbar from './common/Navbar/Navbar';
+import { Navbar } from './common/Navbar';
 import './App.scss';
-import './common/Navbar';
 import client from './Graphql';
 
 class App extends Component {
@@ -13,11 +12,11 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
         <div className="App">
-          <Navbar/>
           <Router>
-            <Switch>
+            <React.Fragment>
+              <Navbar/>
               {routes}
-            </Switch>
+            </React.Fragment>
           </Router>
         </div>
       </ApolloProvider>

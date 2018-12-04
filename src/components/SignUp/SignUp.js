@@ -4,6 +4,7 @@ import  gql  from 'graphql-tag';
 
 import { Input } from '../../common/Input';
 import './SingUp.scss';
+import { Preloader } from "../../common/Preloader";
 
 
 const REGISTER = gql`
@@ -120,7 +121,7 @@ class SignUp extends Component {
     }
 
     catchData = (data) => {
-      const {token} = data.signup;
+      const { token } = data.signup;
       localStorage.setItem("netflixToken", token);
       this.props.history.push('/');
     }
@@ -133,9 +134,10 @@ class SignUp extends Component {
       return(
         <Mutation mutation={REGISTER}>
           {
-            (signup, { data, error }) => {
+            (signup, { data, error, loading }) => {
               if(data) this.catchData(data);
               if(error) this.catchError(error);
+              if(loading) return <Preloader/>;
 
             return(
               <form onSubmit={ e => this.handleSubmit(e, signup) }>
