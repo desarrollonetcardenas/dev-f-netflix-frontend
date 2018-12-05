@@ -4,6 +4,7 @@ import { Query } from "react-apollo";
 
 import './Movies.scss';
 import { Preloader } from "../../common/Preloader";
+import MovieCard from "./MovieCard";
 
 const ALLMOVIES = gql`
   query{
@@ -12,12 +13,16 @@ const ALLMOVIES = gql`
       movie_url,
       name,
       sinopsis,
+      cover,
       rate,
       rating
       }
   }`;
 
 export default class Movies extends Component {
+
+
+
   render() {
     return (
       <div className="container Movies">
@@ -29,7 +34,11 @@ export default class Movies extends Component {
                 if(loading) return  <Preloader/>
                 const movies = data.movies.map((movie,index) => (
                     <div className="col s4" key={index}>
-                        <h4>{movie.name}</h4>
+                      <MovieCard
+                        image={movie.cover}
+                        title={movie.title}
+                        rating={movie.rating}
+                      ></MovieCard>
                     </div>
                 ))
                 return(

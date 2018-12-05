@@ -3,7 +3,8 @@ import { createHttpLink } from "apollo-link-http";
 import { setContext } from "apollo-link-context";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
-const API_URL = 'https://dev-f-netflix-api.herokuapp.com';
+const API_URL = 'https://dev-f-netflix-api2.herokuapp.com';
+
 const httpLink = createHttpLink({
     uri: `${API_URL}/graphql`,
     credentials: "include"
@@ -20,6 +21,6 @@ const authLink = setContext((_, {headers}) => {
 });
 
 export default new ApolloClient({
-    link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
+    link:authLink.concat(httpLink),
+    cache:new InMemoryCache()
 });

@@ -26,7 +26,7 @@ export default class Navbar extends Component {
     } else {
       return (
         <ul className="right hide-on-med-and-down">
-        <li><a href="/login">Login</a></li>
+        <li><a href="/login">LOGIN</a></li>
         <li><a href="/signup">Sign Up</a></li>
         </ul>
       )
