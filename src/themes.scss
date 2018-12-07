@@ -7,6 +7,11 @@
     color: #fff;
 }
 
-.input {
+textarea, input, h4 {
     color: #fff;
+}
+
+input[type=text] + label, input[type=password] + label,
+ input[type=email ] + label,textarea +label{
+    color:#fff;
 }

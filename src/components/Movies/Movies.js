@@ -35,6 +35,7 @@ export default class Movies extends Component {
                 const movies = data.movies.map((movie,index) => (
                     <div className="col s4" key={index}>
                       <MovieCard
+                        id={movie._id}
                         image={movie.cover}
                         title={movie.title}
                         rating={movie.rating}
