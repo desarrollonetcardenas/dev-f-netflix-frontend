@@ -23,7 +23,6 @@ export default class Login extends Component {
             email: "",
             password: ""
         }
-
     }
 
     handleInput = (e) => {
